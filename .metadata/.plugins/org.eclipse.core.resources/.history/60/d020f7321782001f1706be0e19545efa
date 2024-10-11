@@ -1,0 +1,26 @@
+package Com.BridgeLabz.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.NotBlank;
+
+import lombok.Data;
+
+@SuppressWarnings("deprecation")
+@Data
+@Entity
+public class Employee {
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	private Integer id;
+	@NotBlank(message = "Username is mandatory")
+	@Pattern(regexp = "[A-Z]{1}[a-zA-Z\\s]{2,}$", message = "Person first name Invalid")
+	private String name;
+	@Email(message="Email Is Required")
+	private String email;
+	private Long mobileNo;
+}

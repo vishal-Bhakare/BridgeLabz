@@ -1,0 +1,15 @@
+package OppsProjects;
+
+import java.awt.print.Book;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class LabraryManagements {
+
+	private List<Book> book = new ArrayList<Book>();
+	private List<Member> member = new ArrayList<Member>();
+	private Map<String, List<Book>> record = new HashMap<String, List<Book>>();
+
+}

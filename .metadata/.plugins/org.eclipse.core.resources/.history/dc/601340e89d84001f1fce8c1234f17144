@@ -1,0 +1,18 @@
+package DSA;
+
+class Node2 {
+
+	Object data;
+	Node2 next;
+
+	public Node2(Object data) {
+
+		this.data = data;
+		this.next = null;
+	}
+
+}
+
+public class SinglyLinkedListStackPush {
+
+}

@@ -1,0 +1,12 @@
+package DSA;
+
+class Node3 {
+	private Object data;
+	private Node3 next;
+}
+
+public class LinkedListQueue {
+	
+	
+
+}

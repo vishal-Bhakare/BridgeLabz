@@ -1,0 +1,47 @@
+package Review;
+
+public abstract class A {
+
+	public abstract void m5();
+
+	public void m1() {
+System.out.println("M1");
+	}
+
+	public void m2() {
+		System.out.println("M1");
+	}
+
+	public void m3() {
+		System.out.println("M1");
+	}
+
+	public void m4() {
+		System.out.println("M1");
+	}
+
+}
+
+class B extends A {
+
+	@Override
+	public void m1() {
+		System.out.println("Hello");
+
+	}
+
+	public static void main(String[] args) {
+
+		A a = new B();
+		
+		a.m1();
+
+	}
+
+	@Override
+	public void m5() {
+		System.out.println("m5");
+		
+	}
+
+}

@@ -1,0 +1,74 @@
+package DSA;
+
+import java.util.Stack;
+
+class Node2 {
+
+	Object data;
+	Node2 next;
+
+	public Node2(Object data) {
+
+		this.data = data;
+		this.next = null;
+	}
+
+}
+
+public class SinglyLinkedListStackPush {
+
+	private Node2 head;
+
+	public void add(Object data) {
+
+		Node2 nd = new Node2(data);
+
+		if (head == null) {
+
+			head = nd;
+		} else {
+
+			Node2 current = head;
+
+			while (current.next != null) {
+
+				current = current.next;
+			}
+
+			current.next = nd;
+		}
+	}
+
+	public void pushToStack() {
+
+		Stack<Node2> stack = new Stack<Node2>();
+
+		Node2 current = head;
+
+		while (current != null) {
+
+			stack.push(current);
+			current = current.next;
+		}
+
+		// Display the nodes popped from the stack (just to demonstrate the order)
+		
+		System.out.println("Nodes pushed to stack and popped:");
+		
+		while (!stack.isEmpty()) {
+			
+			Node2 node = stack.pop();
+			
+			System.out.println("Popped node data: " + node.data);
+		}
+	}
+	
+	public void display() {
+		
+		if(head==null) {
+			
+			System.out.println("Stack Is Empty ");
+		}
+	}
+
+}

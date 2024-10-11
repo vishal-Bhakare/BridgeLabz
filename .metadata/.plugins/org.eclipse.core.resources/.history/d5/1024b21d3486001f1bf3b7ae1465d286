@@ -1,0 +1,89 @@
+package DSA;
+
+public class SimpleMergeSort {
+
+    // Method to merge two halves
+    public static void merge(int[] arr, int left, int mid, int right) {
+        // Calculate sizes of two halves
+        int size1 = mid - left + 1;
+        int size2 = right - mid;
+
+        // Create temporary arrays to hold values
+        int[] leftArray = new int[size1];
+        int[] rightArray = new int[size2];
+
+        // Copy values into the temporary arrays
+        for (int i = 0; i < size1; i++) {
+            leftArray[i] = arr[left + i];
+        }
+        for (int i = 0; i < size2; i++) {
+            rightArray[i] = arr[mid + 1 + i];
+        }
+
+        // Indexes for the two arrays
+        int i = 0, j = 0, k = left;
+
+        // Merge the temporary arrays back into the original array
+        while (i < size1 && j < size2) {
+            if (leftArray[i] <= rightArray[j]) {
+                arr[k] = leftArray[i];
+                i++;
+            } else {
+                arr[k] = rightArray[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Copy remaining elements of leftArray (if any)
+        while (i < size1) {
+            arr[k] = leftArray[i];
+            i++;
+            k++;
+        }
+
+        // Copy remaining elements of rightArray (if any)
+        while (j < size2) {
+            arr[k] = rightArray[j];
+            j++;
+            k++;
+        }
+    }
+
+    // Method to sort the array using merge sort
+    public static void mergeSort(int[] arr, int left, int right) {
+        if (left < right) {
+            // Find the middle point
+            int mid = (left + right) / 2;
+
+            // Recursively sort first and second halves
+            mergeSort(arr, left, mid);
+            mergeSort(arr, mid + 1, right);
+
+            // Merge the sorted halves
+            merge(arr, left, mid, right);
+        }
+    }
+
+    // Method to print the array
+    public static void printArray(int[] arr) {
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        // Example array to be sorted
+        int[] arr = {1,5,4,6,2,3,8,9,7,10};
+
+        System.out.println("Original Array:");
+        printArray(arr);
+
+        // Perform merge sort
+        mergeSort(arr, 0, arr.length - 1);
+
+        System.out.println("Sorted Array:");
+        printArray(arr);
+    }
+}

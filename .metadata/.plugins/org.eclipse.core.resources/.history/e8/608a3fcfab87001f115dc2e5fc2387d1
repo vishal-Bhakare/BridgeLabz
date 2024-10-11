@@ -1,0 +1,116 @@
+package OppsProjects;
+
+import java.awt.print.Book;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.print.attribute.IntegerSyntax;
+
+public class LabraryManagements {
+
+	private List<Books> books = new ArrayList<Books>();
+	private List<Member> members = new ArrayList<Member>();
+	private Map<Integer, List<Books>> record = new HashMap<Integer, List<Books>>();
+
+	public void addBooks(Books book) {
+
+		books.add(book);
+		System.out.println("Books Added Successfully....");
+	}
+
+	public void addMember(Member member) {
+
+		members.add(member);
+		System.out.println("Members Added Succesfully....");
+	}
+
+	public Books getBooksById(int bookId) {
+
+		for (Books book : books) {
+
+			if (book.getBookId() == bookId) {
+
+				return book;
+			}
+		}
+
+		return null;
+	}
+
+	public Member getMemberById(int memberId) {
+
+		for (Member member : members) {
+
+			return member;
+
+		}
+
+		return null;
+	}
+
+	public void issueBook(int memberId, int bookId) {
+
+		Member member = getMemberById(memberId);
+		Books book = getBooksById(bookId);
+
+		if (member != null && book != null) {
+
+			record.computeIfAbsent(memberId, k -> new ArrayList<>()).add(book);
+
+			System.out.println("Book issued successfully to member: " + member.getMemberName());
+		} else {
+
+			System.out.println("Invalid member or book ID!");
+		}
+	}
+
+	public void returnBooks(int memberId, int bookId) {
+
+		if (record.containsKey(memberId)) {
+
+			List<Books> borrowedBooks = record.get(memberId);
+
+			Books booksById = getBooksById(bookId);
+
+			if (borrowedBooks != null && borrowedBooks.remove(booksById)) {
+
+				System.out.println("Books Return SuccessFully");
+			} else {
+				System.out.println("Book not found in member's borrowed books!");
+			}
+
+		} else {
+
+			System.out.println("Member and book Id Not Found");
+		}
+
+	}
+
+	public void diplayAllBooks() {
+
+		if (books.isEmpty()) {
+			System.out.println("Books Are Not Available...");
+		} else {
+			System.out.println("Library Books:");
+			for (Books book : books) {
+
+				System.out.println(book);
+			}
+
+		}
+	}
+
+	public void displayAllMembers() {
+		if (members.isEmpty()) {
+			System.out.println("No members available.");
+		} else {
+			System.out.println("Library Members:");
+			for (Member member : members) {
+				System.out.println(member);
+			}
+		}
+	}
+
+}

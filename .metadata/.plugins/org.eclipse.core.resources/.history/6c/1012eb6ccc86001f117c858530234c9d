@@ -1,0 +1,16 @@
+package AddressBookApp;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class AddressBook {
+
+	List<Person> list = new ArrayList<Person>();
+
+	public void addPerson(Person person) {
+
+		list.add(person);
+		System.out.println("Person Added SuccessFully");
+	}
+
+}

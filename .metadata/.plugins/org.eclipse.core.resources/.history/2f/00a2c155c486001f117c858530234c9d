@@ -1,0 +1,61 @@
+package DSA;
+
+import java.util.Scanner;
+
+public class BinarySearchProgram {
+
+    // Method to perform Binary Search
+    public static int binarySearch(int[] arr, int target) {
+        int low = 0;
+        int high = arr.length - 1;
+
+        while (low <= high) {
+            int mid = low + (high - low) / 2; // Calculate mid-point
+            
+            // Check if target is at mid
+            if (arr[mid] == target) {
+                return mid;  // Target found, return index
+            }
+            // If target is greater, ignore the left half
+            else if (arr[mid] < target) {
+                low = mid + 1;
+            }
+            // If target is smaller, ignore the right half
+            else {
+                high = mid - 1;
+            }
+        }
+        return -1;  // Target not found
+    }
+
+    // Main method
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input array from user
+        System.out.println("Enter the size of the array:");
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter " + n + " sorted integers:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Input target value
+        System.out.print("Enter the target value: ");
+        int target = scanner.nextInt();
+
+        // Perform Binary Search
+        int result = binarySearch(arr, target);
+
+        // Output the result
+        if (result == -1) {
+            System.out.println("Element Not Found");
+        } else {
+            System.out.println("Element found at Index " + result);
+        }
+    }
+}
+
+

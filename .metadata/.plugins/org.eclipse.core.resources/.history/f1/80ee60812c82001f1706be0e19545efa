@@ -1,0 +1,23 @@
+package com.Bridgelaz.Comparable;
+
+import java.util.*;
+
+public class Test {
+	
+	public static void main(String[] args) {
+		
+		ArrayList<Student> ar = new ArrayList<Student>();
+
+		ar.add(new Student("Vishal", 101, 23));
+		ar.add(new Student("pravin", 102, 24));
+		ar.add(new Student("saurabh", 103, 25));
+
+		Collections.sort(ar);
+
+		for (Student str : ar) {
+			System.out.println(str.getRollno() + " " + str.getStudentname() + " " + str.getStudentage());
+
+		}
+	}
+
+}

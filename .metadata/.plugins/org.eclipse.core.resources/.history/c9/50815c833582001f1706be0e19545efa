@@ -1,0 +1,8 @@
+package com.Bridgelaz;
+
+public class Snippet {
+	public static void main(String[] args) {
+		student.getName()
+	}
+}
+

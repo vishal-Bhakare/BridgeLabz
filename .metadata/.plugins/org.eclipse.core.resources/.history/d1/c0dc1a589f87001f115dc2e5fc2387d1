@@ -1,0 +1,66 @@
+package OppsProjects;
+
+import java.awt.print.Book;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class LabraryManagements {
+
+	private List<Books> books = new ArrayList<Books>();
+	private List<Member> members = new ArrayList<Member>();
+	private Map<Integer, List<Book>> record = new HashMap<String, List<Book>>();
+
+	public void addBooks(Books book) {
+
+		books.add(book);
+		System.out.println("Books Added Successfully....");
+	}
+
+	public void addMember(Member member) {
+
+		members.add(member);
+		System.out.println("Members Added Succesfully....");
+	}
+
+	public Books getBooksById(int bookId) {
+
+		for (Books book : books) {
+
+			if (book.getBookId() == bookId) {
+
+				return book;
+			}
+		}
+
+		return null;
+	}
+
+	public Member getMemberById(int memberId) {
+
+		for (Member member : members) {
+
+			return member;
+
+		}
+
+		return null;
+	}
+
+	public void issuBooks(int memberId, int bookId) {
+
+		Books booksById = getBooksById(bookId);
+		Member memberById = getMemberById(memberId);
+
+		if (booksById != null && memberById != null) {
+
+			// record.computeIfPresent(memberId, i -> new ArrayList<>()).add(books);
+
+			record.computeIfAbsent(memberId, i -> new ArrayList<>()).add(booksById);
+
+		}
+
+	}
+
+}

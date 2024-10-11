@@ -1,0 +1,33 @@
+package DSA;
+
+class Node2 {
+
+	Object data;
+	Node2 next;
+
+	public Node2(Object data) {
+
+		this.data = data;
+		this.next = null;
+	}
+
+}
+
+public class SinglyLinkedListStackPush {
+
+	private Node2 head;
+
+	public void add(Object data) {
+
+		Node2 nd = new Node2(data);
+
+		if (head == null) {
+
+			head = nd;
+		} else {
+
+			Node2 current = head;
+		}
+	}
+
+}

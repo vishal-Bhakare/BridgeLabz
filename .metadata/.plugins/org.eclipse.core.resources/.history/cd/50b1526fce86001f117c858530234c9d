@@ -1,0 +1,32 @@
+package AddressBookApp;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class AddressBook {
+
+	List<Person> listPerson = new ArrayList<Person>();
+
+	public void addPerson(Person person) {
+
+		listPerson.add(person);
+		System.out.println("Person Added SuccessFully");
+	}
+
+	public void listOfPerson() {
+
+		if (listPerson.isEmpty()) {
+
+			System.out.println("Person List Is Empty");
+		} else {
+
+			for (Person person : listPerson) {
+
+				System.out.println(person);
+
+			}
+		}
+
+	}
+
+}

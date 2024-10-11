@@ -1,0 +1,50 @@
+package com.Bridgelaz;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+
+public class ArrayLists {
+	public static void main(String[] args) {
+
+		basicIteration();
+		usingIteratorMethod();
+
+	}
+
+	private static void usingIteratorMethod() {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(10);
+		list.add(20);
+		list.add(30);
+		list.add(40);
+		list.add(50);
+
+		Iterator<Integer> itr = list.iterator();
+
+		while (itr.hasNext()) {
+			Integer next = itr.next();
+
+			System.out.println(next);
+		}
+	}
+
+	private static void basicIteration() {
+		ArrayList<String> al = new ArrayList<String>(Arrays.asList("Boston", "Chicago", "Dallas"));
+		System.out.println("Elements are: " + al);
+
+		ArrayList<Integer> al2 = new ArrayList<Integer>();
+		al2.add(131);
+		al2.add(71);
+		al2.add(361);
+		al2.add(891);
+		al2.add(971);
+
+		/* Advanced For Loop Example for iterating ArrayList */
+		System.out.println("Using Advanced For Loop");
+
+		for (Integer num : al2) {
+			System.out.println(num);
+		}
+	}
+}

@@ -1,0 +1,13 @@
+package Review;
+
+public class EmployeeMain {
+	
+	public static void main(String[] args) {
+		
+		
+		Employee emp = new Employee(101, "VISAHL", 26);
+		Employee emp1 = new Employee(102, "SAUARABH", 27);
+		Employee emp2 = new Employee(104, "SAHIL", 28);
+	}
+
+}

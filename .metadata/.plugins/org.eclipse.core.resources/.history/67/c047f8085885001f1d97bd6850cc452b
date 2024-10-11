@@ -1,0 +1,47 @@
+package Review;
+
+public class ProductArray {
+
+	public static void main(String[] args) {
+
+		int[] array = { 10, 13, 333, 1234 };
+
+		int product = 1;
+
+		for (int num : array) {
+			int originalNum = num; // Store the original number for reference
+			int result = 1; // Variable to store the product of digits
+			StringBuilder equation = new StringBuilder(); // To store the multiplication expression
+
+			// Reverse the number so that we can extract digits from left to right
+			int reversed = 0;
+			while (num > 0) {
+				reversed = reversed * 10 + num % 10;
+				num /= 10;
+			}
+
+			boolean first = true; // Flag to track the first digit
+
+			// Extract digits from reversed number
+			while (reversed > 0) {
+				int digit = reversed % 10;
+				reversed /= 10;
+
+				// Multiply the digits and build the equation
+				if (first) {
+					equation.append(digit); // Append the first digit
+					first = false;
+				} else {
+					equation.append("*").append(digit); // Append * and the next digit
+				}
+
+				result *= digit; // Multiply the digits
+			}
+
+			// Print the result in the required format
+			equation.append("=").append(result);
+			System.out.println(equation.toString());
+		}
+	}
+
+}

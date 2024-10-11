@@ -1,0 +1,101 @@
+package DSA;
+
+//Node class representing each node in the linked list
+class Node {
+ int data;
+ Node next;
+
+ Node(int data) {
+     this.data = data;
+     this.next = null;
+ }
+}
+
+//SinglyLinkedList class for managing the list
+public class SinglyLinkedList {
+ private Node head;
+
+ // Add a node to the end of the list
+ public void add(int data) {
+     Node newNode = new Node(data);
+     if (head == null) {
+         head = newNode;
+     } else {
+         Node current = head;
+         while (current.next != null) {
+             current = current.next;
+         }
+         current.next = newNode;
+     }
+ }
+
+ // Delete the first occurrence of a node with the given data
+ public void delete(int data) {
+     if (head == null) {
+         System.out.println("List is empty");
+         return;
+     }
+
+     // If the node to be deleted is the head node
+     if (head.data == data) {
+         head = head.next;
+         return;
+     }
+
+     Node current = head;
+     Node previous = null;
+
+     // Traverse the list to find the node to delete
+     while (current != null && current.data != data) {
+         previous = current;
+         current = current.next;
+     }
+
+     // If the node to delete was not found
+     if (current == null) {
+         System.out.println("Node with data " + data + " not found.");
+         return;
+     }
+
+     // Unlink the node from the list
+     previous.next = current.next;
+ }
+
+ // Display the list
+ public void display() {
+     if (head == null) {
+         System.out.println("List is empty");
+         return;
+     }
+
+     Node current = head;
+     while (current != null) {
+         System.out.print(current.data + " -> ");
+         current = current.next;
+     }
+     System.out.println("null");
+ }
+
+ // Main method for testing the SinglyLinkedList
+ public static void main(String[] args) {
+     SinglyLinkedList list = new SinglyLinkedList();
+
+     // Adding elements to the list
+     list.add(10);
+     list.add(20);
+     list.add(30);
+     list.add(40);
+     System.out.println("Linked List after adding nodes:");
+     list.display();
+
+     // Deleting a node
+     list.delete(20);
+     System.out.println("Linked List after deleting 20:");
+     list.display();
+
+     // Deleting a node that does not exist
+     list.delete(100);
+     list.display();
+ }
+}
+

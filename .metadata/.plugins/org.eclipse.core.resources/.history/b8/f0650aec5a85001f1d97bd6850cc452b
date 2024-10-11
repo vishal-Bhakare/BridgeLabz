@@ -1,0 +1,25 @@
+package Review;
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class EmployeeMain {
+	
+	public static void main(String[] args) {
+		
+		List<Employee> al= new ArrayList<Employee>();
+		al.add( new Employee(101, "VISAHL", 23));
+		al.add( new Employee(102, "Saurabh", 27));
+		al.add( new Employee(103, "Sahil", 25));
+		
+		Collections.sort(al,new NameSort());
+		System.out.println(al);
+		
+		Collections.sort(al,new AgeSort());
+		System.out.println(al);
+		
+	}
+
+}

@@ -1,0 +1,54 @@
+package AddressBookApp;
+
+import java.util.Scanner;
+
+public class AddressBookApp {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+
+		AddressBook ab = new AddressBook();
+
+		boolean exit = false;
+
+		while (!exit) {
+
+			System.out.println("\nAddress Book Menu:");
+			System.out.println("1. Add Person");
+			System.out.println("2. List Persons");
+			System.out.println("3. Update Person");
+			System.out.println("4. Delete Person");
+			System.out.println("5. Exit");
+			System.out.print("Enter your choice: ");
+
+			int ch = sc.nextInt();
+
+			switch (ch) {
+			case 1:
+
+				break;
+
+			case 2:
+
+				break;
+
+			case 3:
+
+				break;
+			case 4:
+
+				break;
+
+			case 5:
+
+				break;
+
+			default:
+				break;
+			}
+
+		}
+	}
+
+}

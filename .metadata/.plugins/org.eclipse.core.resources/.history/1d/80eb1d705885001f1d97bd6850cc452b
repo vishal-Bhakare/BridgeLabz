@@ -1,0 +1,23 @@
+package Review;
+
+public class ProductArray {
+
+	public static void main(String[] args) {
+
+		int[] array = { 10, 13, 333, 1234 };
+
+		for (int num : array) {
+			int result = 1;
+			//int originalNum = num;
+
+			while (num > 0) {
+				int digit = num % 10;
+				result *= digit;
+				num /= 10;
+			}
+
+			System.out.println(result);
+		}
+	}
+
+}

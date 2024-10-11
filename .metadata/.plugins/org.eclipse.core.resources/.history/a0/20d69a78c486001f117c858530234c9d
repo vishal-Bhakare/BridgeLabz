@@ -1,0 +1,54 @@
+package DSA;
+
+import java.util.Scanner;
+
+public class BubbleSortProgram {
+
+	// Method to take input from the user and store it in an array
+	public static int[] takeInput() {
+		Scanner scanner = new Scanner(System.in);
+		int[] arr = new int[10]; // Array of size 10
+
+		System.out.println("Enter 10 integer numbers:");
+		for (int i = 0; i < 10; i++) {
+			System.out.print("Number " + (i + 1) + ": ");
+			arr[i] = scanner.nextInt();
+		}
+		return arr;
+	}
+
+	// Method to sort the array using Bubble Sort
+	public static void bubbleSort(int[] arr) {
+
+		// Bubble Sort algorithm
+		for (int i = 0; i < arr.length ; i++) {
+
+			for (int j = i+1; j < arr.length ; j++) {
+
+				if (arr[i] > arr[j]) {
+					int temp = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+
+				}
+
+			}
+		}
+	}
+
+	// Main method
+	public static void main(String[] args) {
+		int[] arr = takeInput(); // Get input from user
+		System.out.println("Array before sorting:");
+		for (int num : arr) {
+			System.out.print(num + " ");
+		}
+
+		bubbleSort(arr); // Sort the array
+
+		System.out.println("\nArray after sorting:");
+		for (int num : arr) {
+			System.out.print(num + " ");
+		}
+	}
+}

@@ -1,0 +1,46 @@
+package Review;
+
+public class ProductArray {
+
+	public static void main(String[] args) {
+
+		int[] array = { 10, 13, 333, 1234 };
+
+		int product = 1;
+
+		for (int num : array) {
+			int originalNum = num; 
+			int result = 1;
+			StringBuilder equation = new StringBuilder();  
+
+			int reversed = 0;
+			while (num > 0) {
+				reversed = reversed * 10 + num % 10;
+				num /= 10;
+			}
+
+			boolean first = true; 
+
+			
+			while (reversed > 0) {
+				int digit = reversed % 10;
+				reversed /= 10;
+
+				
+				if (first) {
+					equation.append(digit); 
+					first = false;
+				} else {
+					equation.append("*").append(digit); 
+				}
+
+				result *= digit; 
+			}
+
+			
+			equation.append("=").append(result);
+			System.out.println(equation.toString());
+		}
+	}
+
+}

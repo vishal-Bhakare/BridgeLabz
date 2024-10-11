@@ -1,0 +1,23 @@
+package DSA;
+
+class Node3 {
+	private Object data;
+	private Node3 next;
+
+	public Node3(Object data) {
+		this.data = data;
+		this.next = null;
+	}
+}
+
+public class LinkedListQueue {
+
+	private Node3 front;
+	private Node3 rear;
+
+	public LinkedListQueue() {
+		this.front = null;
+		this.rear = null;
+	}
+
+}
